@@ -1,3 +1,7 @@
+
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,7 +18,11 @@ public class Formulario extends javax.swing.JFrame {
      * Creates new form Formulario
      */
     public Formulario() {
-        initComponents();
+          initComponents();
+        ImageIcon ver= new ImageIcon(getClass().getResource("/iconos/ciego.png"));
+        btnVer.setIcon(ver);
+        ImageIcon ocultar= new ImageIcon(getClass().getResource("/iconos/cerrar-ojo.png"));
+        btnOcultar.setIcon(ocultar);
     }
 
     /**
@@ -76,6 +84,12 @@ public class Formulario extends javax.swing.JFrame {
         btnVerificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerificarActionPerformed(evt);
+            }
+        });
+
+        passField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passFieldActionPerformed(evt);
             }
         });
 
@@ -176,8 +190,16 @@ public class Formulario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
-        // TODO add your handling code here:
+       if(txtMail.getText().equalsIgnoreCase("alumno@ulp.edu.ar")&& passField.getText().equalsIgnoreCase("12345678")){
+            JOptionPane.showMessageDialog(null, "Bienvenido");
+        } else{
+             JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrectos");
+        }
     }//GEN-LAST:event_btnVerificarActionPerformed
+
+    private void passFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passFieldActionPerformed
 
     /**
      * @param args the command line arguments
